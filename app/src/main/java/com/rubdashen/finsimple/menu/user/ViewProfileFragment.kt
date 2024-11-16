@@ -6,23 +6,32 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentTransaction
 import com.rubdashen.finsimple.R
 
 class ViewProfileFragment : Fragment(R.layout.fragment_view_profile) {
 
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        return inflater.inflate(R.layout.fragment_view_profile, container, false)
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        // Referencia al ImageView con el icono de edición
-        val editImageView = view.findViewById<ImageView>(R.id.myImageView)
-
-        // Establecer el listener para navegar al EditProfileFragment
-        editImageView.setOnClickListener {
-            parentFragmentManager.beginTransaction()
-                .replace(R.id.fragmentContainer, EditProfileFragment())
-                .addToBackStack(null)
-                .commit()
+        val editProfileOption: ImageView = view.findViewById(R.id.edit_profile_option)
+        editProfileOption.setOnClickListener {
+            replaceFragment(EditProfileFragment())
         }
     }
-}
 
+    private fun replaceFragment(fragment: Fragment) {
+        val fragmentManager: FragmentManager = parentFragmentManager
+        val fragmentTransaction: FragmentTransaction = fragmentManager.beginTransaction()
+        fragmentTransaction.replace(R.id.main, fragment)
+        fragmentTransaction.addToBackStack(null) // Permitir regresar al fragmento anterior
+        fragmentTransaction.commit()
+    }
+}

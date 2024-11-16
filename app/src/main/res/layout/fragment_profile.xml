@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -9,6 +8,16 @@
     tools:context=".menu.MenuActivity">
 
     <!-- Círculos decorativos del fondo -->
+    <View
+        android:id="@+id/holder_register3"
+        android:layout_width="416dp"
+        android:layout_height="626dp"
+        android:background="@drawable/login_rectangle_shape"
+        android:backgroundTint="@color/light_green"
+        android:layout_marginTop="142dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <View
         android:id="@+id/deco_circle_main"
@@ -33,15 +42,6 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <!-- Contenido Principal centrado verticalmente -->
-    <View
-        android:id="@+id/holder_register3"
-        android:layout_width="399dp"
-        android:layout_height="509dp"
-        android:background="@drawable/login_rectangle_shape"
-        android:backgroundTint="@color/light_green"
-        tools:layout_editor_absoluteX="7dp"
-        tools:layout_editor_absoluteY="142dp" />
-
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -63,7 +63,6 @@
             android:textSize="35sp"
             tools:layout_editor_absoluteX="98dp"
             tools:layout_editor_absoluteY="23dp" />
-
 
         <ImageView
             android:id="@+id/ivProfileImage"
@@ -90,11 +89,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <TextView
+            <Button
+                android:id="@+id/user_option"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:drawableStart="@drawable/user_icon"
                 android:drawablePadding="10dp"
+                app:backgroundTint="@color/light_green"
                 android:padding="10dp"
                 android:text="Perfil"
                 android:textColor="#333333"
@@ -128,6 +129,17 @@
                 android:textColor="#C70000" />
         </LinearLayout>
     </LinearLayout>
+
+    <!-- Contenedor para reemplazar fragmentos -->
+    <FrameLayout
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        app:layout_constraintBottom_toTopOf="@id/navigation_menu"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <!-- Navegación inferior -->
     <com.google.android.material.bottomnavigation.BottomNavigationView
