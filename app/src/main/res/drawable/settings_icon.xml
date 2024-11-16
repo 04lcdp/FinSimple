@@ -1,0 +1,16 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:height="24dp"
+    android:viewportHeight="24"
+    android:viewportWidth="24"
+    android:width="24dp">
+
+    <!-- Círculo central -->
+    <path
+        android:fillColor="#000000"
+        android:pathData="M12,8c-2.21,0 -4,1.79 -4,4s1.79,4 4,4 4,-1.79 4,-4 -1.79,-4 -4,-4z"/>
+
+    <!-- Cuadrados alrededor del círculo (simulando los dientes del engranaje) -->
+    <path
+        android:fillColor="#000000"
+        android:pathData="M12,2h1v2h-1V2zM12,20h1v2h-1v-2zM2,12h2v1H2v-1zM20,12h2v1h-2v-1zM16.12,4.88l1.41,1.41-1.41,1.41-1.41-1.41 1.41-1.41zM16.12,19.12l1.41,1.41-1.41,1.41-1.41-1.41 1.41-1.41zM7.88,4.88l1.41,1.41-1.41,1.41-1.41-1.41 1.41-1.41zM7.88,19.12l1.41,1.41-1.41,1.41-1.41-1.41 1.41-1.41z"/>
+</vector>
