@@ -27,7 +27,7 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         this.changeToViewProfile()
-        val userOption: TextView = view.findViewById(R.id.user_option)
+        val userOption: Button = view.findViewById(R.id.user_option)
         userOption.setOnClickListener {
             replaceFragment(ViewProfileFragment())
         }
