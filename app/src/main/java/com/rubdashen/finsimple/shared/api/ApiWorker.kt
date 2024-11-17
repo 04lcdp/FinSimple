@@ -6,6 +6,7 @@ import com.rubdashen.finsimple.shared.api.bill.response.BillCreationResponse
 import com.rubdashen.finsimple.shared.api.bill.response.BillInformationResponse
 import      com.rubdashen.finsimple.shared.api.bill.response.BillViewInformationResponse
 import      com.rubdashen.finsimple.shared.api.user.UserApiService
+import com.rubdashen.finsimple.shared.api.user.request.EditProfileRequest
 import      com.rubdashen.finsimple.shared.api.user.request.UserLoginRequest
 import      com.rubdashen.finsimple.shared.api.user.request.UserRegisterRequest
 import      com.rubdashen.finsimple.shared.api.user.response.UserInformationResponse
@@ -72,6 +73,18 @@ public final class ApiWorker
 
             return call
         }
+
+        public fun updateUserProfile(request: EditProfileRequest): Call<Void> {
+            val retrofit = Retrofit.Builder()
+                .baseUrl(FinSimpleSettings.apiUrl)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build()
+            val service = retrofit.create(UserApiService::class.java)
+            return service.updateUserProfile(
+                "Bearer ${UserWrapperSettings.token}", request
+            )
+        }
+
 
         public fun billsViewInformation(): Call<List<BillViewInformationResponse>> {
             val retrofit = Retrofit.Builder()
